@@ -1,0 +1,15 @@
+{
+  "manifest_version": 2,
+
+  "name": "Drug Information",
+  "description": "A quick plug0in to help with your drug information searches.",
+  "version": "0.9",
+
+  "permissions": [
+    "tabs",
+  ],
+  "browser_action": {
+    "default_icon": "img/icon.png",
+    "default_popup": "popup.html"
+  }
+}
