@@ -1,31 +1,64 @@
 <!doctype html>
 <html>
   <head>
-    <title>Getting Started Extension's Popup</title>
-    <style>
+    <title>Drug Information Search</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css"/>
+	<style>
       body {
-        min-width: 357px;
+        min-width: 350px;
         overflow-x: hidden;
       }
-
-      img {
-        margin: 5px;
-        border: 2px solid black;
-        vertical-align: middle;
-        width: 75px;
-        height: 75px;
-      }
-    </style>
-
-    <!--
-      - JavaScript and HTML must be in separate files: see our Content Security
-      - Policy documentation[1] for details and explanation.
-      -
-      - [1]: http://developer.chrome.com/extensions/contentSecurityPolicy.html
-     -->
+    </style> 
     <script src="popup.js"></script>
+	<script src="js/jquery-1.11.1.js"></script>
+	<script src="js/bootstrap.min.js"></script>
   </head>
-  <body>
+  <body class="content">
+	<input type="text" class="form-control" id="searchQuery" placeholder="Type in a Drug">
+	<div class="row">
+		<div class="col-lg-6">
+			<div class="input-group">
+				<div class="input-group-addon">
+					<input type="checkbox">
+				</div>
+				<div class="form-control">DailyMed</div>
+			</div>
+		</div>
+	</div> <!-- class row -->
+	<div class="row">
+		<div class="col-lg-6">
+			<div class="input-group">
+				<div class="input-group-addon">
+					<input type="checkbox">
+				</div>
+				<div class="form-control">Drugs@FDA</div>
+			</div>
+		</div>
+	</div> <!-- class row -->
+	<div class="row">
+		<div class="col-lg-6">
+			<div class="input-group">
+				<div class="input-group-addon">
+					<input type="checkbox">
+				</div>
+				<div class="form-control">Google</div>
+			</div>
+		</div>
+	</div> <!-- class row -->
+	<div class="row">
+		<div class="col-lg-6">
+			<div class="input-group">
+				<div class="input-group-addon">
+					<input type="checkbox">
+				</div>
+				<div class="form-control">PubMed</div>
+			</div>
+		</div>
+	</div> <!-- class row -->	
+		<button type="submit" class="btn btn-primary pull-right" id="searchButton">
+			<span class="glyphicon glyphicon-search"></span> 
+			Search
+		</button>
   </body>
 </html>
 
