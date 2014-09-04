@@ -3,6 +3,7 @@
   <head>
     <title>Drug Information Search</title>
     <link rel="stylesheet" href="css/bootstrap.min.css"/>
+	<link rel="stylesheet" href="css/font-awesome.min.css"/>
 	<style>
       body {
 		    padding: 2px;
@@ -21,9 +22,9 @@
   <body class="content">
 	<!--Nav Tabs-->
 	<ul class="nav nav-tabs" role="tablist">
-		<li class="active"><a href="#"><span class="glyphicon glyphicon-leaf"></span> Drugs</a></li>
-		<li><a href="#"> <span class="glyphicon glyphicon-tint"></span> Clinical</a></li> 
-		<li><a href="#"> <span class="glyphicon glyphicon-cog"></span> About</a></li>
+		<li class="active"><a href="#"> <i class="fa fa-user-md fa-lg"></i> Provider</a></li> 
+		<li><a href="#"><i class="fa fa-male fa-lg"></i> Patient</a></li>
+		<li><a href="#"> <span class="fa fa-cog fa-lg"></span> About</a></li>
 	</ul> <!--End Nav Tabs-->
   
 	<input type="text" class="form-control" id="searchQuery" placeholder="Type in a Drug">
@@ -77,7 +78,7 @@
 	<div class="btn-group pull-right">
 		<div class="btn-group">
 		  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
-			<span class="glyphicon glyphicon-cog"></span> Options
+			<span class="fa fa-cog fa-lg"></span> Options
 			<span class="caret"></span>
 		  </button>
 		  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
@@ -94,7 +95,7 @@
 			</label>
 		</div> 
 		
-		<button type="button" class="btn btn-success" id="searchButton"><span class="glyphicon glyphicon-search"></span>  Search</button>
+		<button type="button" class="btn btn-success" id="searchButton"><span class="fa fa-search fa-lg"></span>  Search</button>
 	</div>
   </body>
 </html>
