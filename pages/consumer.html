@@ -1,0 +1,96 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Drug Information Search</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css"/>
+	<link rel="stylesheet" href="../css/font-awesome.min.css"/>
+	<style>
+      body {
+		    padding: 2px;
+			width: 350px;
+			min-height: 50px;
+			max-height: 500px;
+			overflow: hidden;
+			overflow-y: auto;
+			line-height: 1.25;
+      }
+    </style> 
+    <script src="home.js"></script>
+	<script src="../js/jquery-1.11.1.js"></script>
+	<script src="../js/bootstrap.min.js"></script>
+  </head>
+  <body class="content">
+	<ul class="nav nav-tabs" role="tablist">
+		<li><a href="home.html"> <i class="fa fa-user-md fa-lg"></i> Provider</a></li> 
+		<li class="active"><a href="#"><i class="fa fa-male fa-lg"></i> Consumer</a></li>
+		<li><a href="about.html"> <span class="fa fa-cog fa-lg"></span> About</a></li>
+	</ul> <!--Nav Tabs-->
+	<input type="text" class="form-control" id="searchQuery" placeholder="Type in a Drug">
+	<div class="row">
+		<div class="col-lg-12">
+		<div class="input-group">
+				<div class="input-group-addon">
+					<input class="checkboxOption" type="checkbox">
+				</div>
+				<div class="form-control">Clinical Pharmacology (sub req'd)</div>
+			</div><!--input-group-->
+			<div class="input-group">
+				<div class="input-group-addon">
+					<input class="checkboxOption" type="checkbox">
+				</div>
+				<div class="form-control">Clinicaltrials.gov</div>
+			</div><!--input-group-->
+			<div class="input-group">
+				<div class="input-group-addon">
+					<input class="checkboxOption" type="checkbox">
+				</div>
+				<div class="form-control">DailyMed</div>
+			</div><!--input-group-->
+			<div class="input-group">
+				<div class="input-group-addon">
+					<input class="checkboxOption" type="checkbox">
+				</div>
+				<div class="form-control">Drugs@FDA</div>
+			</div><!--input-group-->
+			<div class="input-group">
+				<div class="input-group-addon">
+					<input class="checkboxOption" type="checkbox">
+				</div>
+				<div class="form-control">EMEA Drugs</div>
+			</div><!--input-group-->
+			<div class="input-group">
+				<div class="input-group-addon">
+					<input class="checkboxOption" type="checkbox">
+				</div>
+				<div class="form-control">Google</div>
+			</div><!--input-group-->
+			<div class="input-group">
+				<div class="input-group-addon">
+					<input class="checkboxOption" type="checkbox">
+				</div>
+				<div class="form-control">PubMed</div>
+			</div> <!--input-group-->
+		</div>
+	</div> <!-- class row -->
+	
+	<div class="btn-group pull-right">
+		<div class="btn-group">
+		  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
+			<span class="fa fa-cog fa-lg"></span> Options
+			<span class="caret"></span>
+		  </button>
+		  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+			<li role="presentation"><a role="menuitem" tabindex="-1" href="http://www.google.com">Include Guidelines</a></li>
+		  </ul>
+		</div>
+		<div class="btn-group" data-toggle="buttons">
+			<label class="btn btn-primary">
+				<input type="checkbox" name="checkall" id="checkAllButton"> Check All
+			</label>
+		</div> 
+		
+		<button type="button" class="btn btn-success" id="searchButton"><span class="fa fa-search fa-lg"></span>  Search</button>
+	</div>
+  </body>
+</html>
+

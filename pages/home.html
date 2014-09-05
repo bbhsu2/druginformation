@@ -2,8 +2,8 @@
 <html>
   <head>
     <title>Drug Information Search</title>
-    <link rel="stylesheet" href="css/bootstrap.min.css"/>
-	<link rel="stylesheet" href="css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="../css/bootstrap.min.css"/>
+	<link rel="stylesheet" href="../css/font-awesome.min.css"/>
 	<style>
       body {
 		    padding: 2px;
@@ -15,18 +15,16 @@
 			line-height: 1.25;
       }
     </style> 
-    <script src="popup.js"></script>
-	<script src="js/jquery-1.11.1.js"></script>
-	<script src="js/bootstrap.min.js"></script>
+    <script src="home.js"></script>
+	<script src="../js/jquery-1.11.1.js"></script>
+	<script src="../js/bootstrap.min.js"></script>
   </head>
   <body class="content">
-	<!--Nav Tabs-->
 	<ul class="nav nav-tabs" role="tablist">
 		<li class="active"><a href="#"> <i class="fa fa-user-md fa-lg"></i> Provider</a></li> 
-		<li><a href="#"><i class="fa fa-male fa-lg"></i> Patient</a></li>
-		<li><a href="#"> <span class="fa fa-cog fa-lg"></span> About</a></li>
-	</ul> <!--End Nav Tabs-->
-  
+		<li><a href="consumer.html"><i class="fa fa-male fa-lg"></i> Consumer</a></li>
+		<li><a href="about.html"> <span class="fa fa-cog fa-lg"></span> About</a></li>
+	</ul> <!--Nav Tabs-->
 	<input type="text" class="form-control" id="searchQuery" placeholder="Type in a Drug">
 	<div class="row">
 		<div class="col-lg-12">
@@ -74,7 +72,6 @@
 			</div> <!--input-group-->
 		</div>
 	</div> <!-- class row -->
-	
 	<div class="btn-group pull-right">
 		<div class="btn-group">
 		  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
@@ -83,12 +80,8 @@
 		  </button>
 		  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
 			<li role="presentation"><a role="menuitem" tabindex="-1" href="http://www.google.com">Include Guidelines</a></li>
-			<!-- <li role="presentation" class="divider"></li>
-			<li role="presentation"><a role="menuitem" id="checkAll" tabindex="-1" href="#">Check All</a></li> -->
 		  </ul>
 		</div>
-		<!-- <button type="button" class="btn btn-primary" id="checkAllButton"><span class="glyphicon glyphicon-ok"></span>  Check All</button> -->
-		
 		<div class="btn-group" data-toggle="buttons">
 			<label class="btn btn-primary">
 				<input type="checkbox" name="checkall" id="checkAllButton"> Check All
