@@ -68,6 +68,12 @@ function getDrugsAtFDALink(query){
 		   "CFID=34297116&CFTOKEN=9b96930ccafcc38b-DB16D54C-B813-5F5E-A0A75D1DA67934C5";
 }
 
+function getDrugsAtFDAReviewLink(query){
+	return "https://www.google.com/#q="+ 
+		   query + 
+		   "+Medical+Review(s)+Pharmacology+Review(s)+Administrative+Document(s)+Correspondence"
+}
+
 function getGoogleLink(query){
 	return "https://www.google.com/#q=" + query;
 }
@@ -77,13 +83,11 @@ function getClinicalTrialsGovLink(query){
 }
 
 function getEMEALink(query){
-	return "http://www.ema.europa.eu/ema/index.jsp " +
-	"?curl=pages/medicines/landing/epar_search.jsp" +
-	"&mid=WC0b01ac058001d124" +
-	"&source=homeMedSearch" +
-	"&keyword=" + query +
-	"&category=human" +
-	"&isNewQuery=true";
+	return "http://www.ema.europa.eu/ema/index.jsp?" +
+	"curl=pages%2Fincludes%2Fmedicines%2Fmedicines_landing_page.jsp" +
+	"&searchkwByEnter=true" +
+	"&quickSearch=" + query +
+	"&keywordSearch=Submit";
 }
 
 
@@ -122,8 +126,9 @@ function searchClick(e){
 }
 
 function checkAll(e){
-	
 	$(".checkboxOption").each(function(){
 		this.checked = true;
 	});
 }
+
+
