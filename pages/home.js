@@ -5,26 +5,6 @@ var bg = chrome.extension.getBackgroundPage();
 var LOG_SRC = "POPUP";
 var searchStr = "";
 
-// Simple little timer class to help with optimizations
-function Timer() {
-  this.start = (new Date).getTime();
-  this.last = this.start;
-}
-Timer.prototype.log = function(id) {
-  var now = (new Date).getTime();
-  log(id + " total time " + (now - this.start) + " m/s, delta " + (now - this.last) + " m/s");
-  this.last = now;
-};
-
-/**
- * Log call that prepends the LOG_SRC before delegating to the background page to simplify debugging
- */
-function log() {
-  var args = Array.prototype.slice.call(arguments);
-  args.unshift(LOG_SRC);
-  bg.log.apply(bg, args);
-}
-
 document.addEventListener('DOMContentLoaded', function () {
 	var allLabels = $("label");
 	var flag = false; //TODO: fix this so it's based on checkbox state.
@@ -45,6 +25,17 @@ document.addEventListener('DOMContentLoaded', function () {
 	});
 	
 	$(":button")[1].addEventListener('click', searchClick);
+	
+	$(".content").keyup(function(e) {
+		if(e.keyCode == 13) {
+			$(":button")[1].click();
+		}
+	});
+	
+	$(".input-group").addEventListener('click', function(){
+		$(".input-group > .input-group-addon > .checkboxOption").checked = true;
+	});
+	
  })
 
 function getPubMedLink(query){
@@ -90,6 +81,12 @@ function getEMEALink(query){
 	"&keywordSearch=Submit";
 }
 
+function getWikipediaLink(query){
+	return "http://en.wikipedia.org/w/index.php?search=" +
+		   query +
+		   "&title=Special%3ASearch&go=Go";
+}
+
 
 function searchClick(e){
 	var query = document.getElementById("searchQuery").value;
@@ -132,3 +129,32 @@ function checkAll(e){
 }
 
 
+
+
+
+
+
+
+
+
+
+
+// Simple little timer class to help with optimizations
+// function Timer() {
+  // this.start = (new Date).getTime();
+  // this.last = this.start;
+// }
+// Timer.prototype.log = function(id) {
+  // var now = (new Date).getTime();
+  // log(id + " total time " + (now - this.start) + " m/s, delta " + (now - this.last) + " m/s");
+  // this.last = now;
+// };
+
+// /**
+ // * Log call that prepends the LOG_SRC before delegating to the background page to simplify debugging
+ // */
+// function log() {
+  // var args = Array.prototype.slice.call(arguments);
+  // args.unshift(LOG_SRC);
+  // bg.log.apply(bg, args);
+// }
