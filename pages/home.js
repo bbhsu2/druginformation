@@ -1,14 +1,18 @@
 /* Bernard Hsu, 2014
 License information here */
 
-var bg = chrome.extension.getBackgroundPage();
-var LOG_SRC = "POPUP";
-var searchStr = "";
+setTimeout(function() {
+  $('#searchQuery').focus();
+}, 500);
+
+//var bg = chrome.extension.getBackgroundPage();
+// var LOG_SRC = "POPUP";
+// var searchStr = "";
 
 document.addEventListener('DOMContentLoaded', function () {
-	var allLabels = $("label");
+	var label = $("div > label");
 	var flag = false; //TODO: fix this so it's based on checkbox state.
-	$("div").find(allLabels)[0].addEventListener('click', function(e){
+	label[0].addEventListener('click', function(e){
 		if(flag) {
 			$(this).html("Check All");
 			$(".checkboxOption").each(function(){
@@ -32,11 +36,31 @@ document.addEventListener('DOMContentLoaded', function () {
 		}
 	});
 	
-	$(".input-group").addEventListener('click', function(){
-		$(".input-group > .input-group-addon > .checkboxOption").checked = true;
-	});
-	
+    $(".form-control").on("click", checkInside);
+	$("#searchQuery").attr('onclick','').unbind('click'); //remove click handler for box
  })
+ 
+ function checkInside(e) {
+    var box = $(".checkboxOption",$(this).parent());
+    if(box.prop('checked') == true){
+        box.prop('checked', false);
+    } else{
+         box.prop('checked', true);
+    }
+	 
+	var allBoxes = $(":checkbox");
+	var hasUnchecked = true;
+	var box = $(".btn-group > .btn-primary");
+	for(var i = 0; i < allBoxes.length; i++){
+		if(!allBoxes[i].checked){
+			hasUnchecked = true;
+			box.html("Check All");
+		} else {
+			hasUnchecked = false;
+			box.html("Unselect All");
+		}
+	}
+}
 
 function getPubMedLink(query){
 	return "http://www.ncbi.nlm.nih.gov/pubmed/?term=" + query;
@@ -87,6 +111,21 @@ function getWikipediaLink(query){
 		   "&title=Special%3ASearch&go=Go";
 }
 
+function getGoogleFDAAdComLink(query){
+	return "";
+}
+
+function getGoogleREMSLink(query){
+	return "";
+}
+
+function getGoogleRestrictedDistributionLink(query){
+	return "";
+}
+
+function getGoogleGuidelinesLink(query){
+	return "";
+}
 
 function searchClick(e){
 	var query = document.getElementById("searchQuery").value;
@@ -127,16 +166,6 @@ function checkAll(e){
 		this.checked = true;
 	});
 }
-
-
-
-
-
-
-
-
-
-
 
 
 // Simple little timer class to help with optimizations
