@@ -1,8 +1,12 @@
 /* Bernard Hsu, 2014
 License information here */
 
+function focusSearchQuery(){
+	$("#searchQuery").focus();
+}
+
 setTimeout(function() {
-  $('#searchQuery').focus();
+  focusSearchQuery();
 }, 500);
 
 //var bg = chrome.extension.getBackgroundPage();
@@ -61,6 +65,8 @@ document.addEventListener('DOMContentLoaded', function () {
 			box.html("Unselect All");
 		}
 	}
+	
+	focusSearchQuery();
 }
 
 function getPubMedLink(query){
@@ -113,19 +119,27 @@ function getWikipediaLink(query){
 }
 
 function getGoogleFDAAdComLink(query){
-	return "";
+	return "https://www.google.com/search?q=" +
+			query +
+			"+fda+\"advisory+committee+meeting+announcement\"+\"public+participation\"";
 }
 
 function getGoogleREMSLink(query){
-	return "";
+	return "https://www.google.com/search?q=" +
+			query +
+			"+REMS";
 }
 
 function getGoogleRestrictedDistributionLink(query){
-	return "";
+	return "https://www.google.com/search?q=" +
+			query +
+			"+\"resticted+distribution\"";
 }
 
 function getGoogleGuidelinesLink(query){
-	return "";
+	return "https://www.google.com/search?q=" +
+			query +
+			"+guidelines";
 }
 
 function searchClick(e){
@@ -149,12 +163,27 @@ function searchClick(e){
 					chrome.tabs.create({ url: getDrugsAtFDALink(query) });
 					break;
 				case 4:
-					chrome.tabs.create({ url: getEMEALink(query) });
+					chrome.tabs.create({url: getDrugsAtFDAReviewLink(query)});
 					break;
 				case 5:
-					chrome.tabs.create({ url: getGoogleLink(query) });
+					chrome.tabs.create({url: getGoogleFDAAdComLink(query)});
 					break;
 				case 6:
+					chrome.tabs.create({ url: getEMEALink(query) });
+					break;
+				case 7:
+					chrome.tabs.create({ url: getGoogleLink(query) });
+					break;
+				case 8:
+					chrome.tabs.create({url: getGoogleGuidelinesLink(query)});
+					break;
+				case 9:
+					chrome.tabs.create({url: getGoogleREMSLink(query)});
+					break;
+				case 10:
+					chrome.tabs.create({url: getGoogleRestrictedDistributionLink(query)});
+					break;
+				case 11:
 					chrome.tabs.create({ url: getPubMedLink(query) });
 					break;
 			}
