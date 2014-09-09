@@ -28,6 +28,7 @@ document.addEventListener('DOMContentLoaded', function () {
 		}
 	});
 	
+	//TODO: change this 
 	$(":button")[1].addEventListener('click', searchClick);
 	
 	$(".content").keyup(function(e) {
