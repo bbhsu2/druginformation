@@ -133,7 +133,7 @@ function getGoogleREMSLink(query){
 function getGoogleRestrictedDistributionLink(query){
 	return "https://www.google.com/search?q=" +
 			query +
-			"+\"resticted+distribution\"";
+			"+\"restricted+distribution\"";
 }
 
 function getGoogleGuidelinesLink(query){
@@ -178,10 +178,10 @@ function searchClick(e){
 					chrome.tabs.create({url: getGoogleGuidelinesLink(query)});
 					break;
 				case 9:
-					chrome.tabs.create({url: getGoogleREMSLink(query)});
+					chrome.tabs.create({url: getGoogleRestrictedDistributionLink(query)});
 					break;
 				case 10:
-					chrome.tabs.create({url: getGoogleRestrictedDistributionLink(query)});
+					chrome.tabs.create({url: getGoogleREMSLink(query)});
 					break;
 				case 11:
 					chrome.tabs.create({ url: getPubMedLink(query) });
