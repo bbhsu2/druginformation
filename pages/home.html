@@ -9,7 +9,7 @@
 		    padding: 2px;
 			width: 350px;
 			min-height: 50px;
-			max-height: 500px;
+			max-height: 900px;
 			overflow: hidden;
 			overflow-y: auto;
 			line-height: 1.25;
@@ -87,20 +87,26 @@
 				<div class="form-control">Guidelines</div>
 			</div><!--input-group-->
 			
-			<div class="input-group pull-right" style="width: 95%; margin-top: 5px; margin-bottom: 5px;">
+			<div class="input-group pull-right" style="width: 95%;">
 				<div class="input-group-addon">
 					<input class="checkboxOption" type="checkbox">
 				</div>
 				<div class="form-control">Restricted Distribution</div>
 			</div><!--input-group-->
 			
-			<div class="input-group pull-right" style="width: 95%; margin-top: 5px;">
+			<div class="input-group pull-right" style="width: 95%; margin-bottom: 5px;">
 				<div class="input-group-addon">
 					<input class="checkboxOption" type="checkbox">
 				</div>
 				<div class="form-control">Risk Evaluation and Mitigation Strategy</div>
 			</div><!--input-group-->
-			
+
+			<div class="input-group">
+				<div class="input-group-addon">
+					<input class="checkboxOption" type="checkbox">
+				</div>
+				<div class="form-control">UpToDate</div>
+			</div> <!--input-group-->			
 			<div class="input-group">
 				<div class="input-group-addon">
 					<input class="checkboxOption" type="checkbox">
@@ -109,21 +115,40 @@
 			</div> <!--input-group-->
 		</div>
 	</div> <!-- class row -->
+	
+	
 	<div class="btn-group pull-right">
-		<div class="btn-group">
+		<!-- <div class="btn-group">
 		  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
 			<span class="fa fa-cog fa-lg"></span> Options
 			<span class="caret"></span>
 		  </button>
 		  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-			<li role="presentation"><a role="menuitem" tabindex="-1" href="http://www.google.com">Include Guidelines</a></li>
+			<li role="presentation"><a role="menuitem" tabindex="-1"  href="http://www.google.com">Search Drugs Only</a>
+			</li>
+			<li role="presentation"><a role="menuitem" tabindex="-1" href="http://www.google.com">Search Disease States Only</a>
+			</li>
 		  </ul>
+		</div> -->
+		
+		
+		<div class="btn-group" data-toggle="buttons">
+			<label class="btn btn-danger">
+				<input type="checkbox" name="checkall" id="checkDiseaseButton"> Disease
+			</label>
+		</div> 
+		
+		<div class="btn-group" data-toggle="buttons">
+			<label class="btn btn-warning">
+				<input type="checkbox" name="checkall" id="checkDrugsButton"> Drugs
+			</label>
 		</div>
+		
 		<div class="btn-group" data-toggle="buttons">
 			<label class="btn btn-primary">
 				<input type="checkbox" name="checkall" id="checkAllButton"> Check All
 			</label>
-		</div> 
+		</div>
 		
 		<button type="button" class="btn btn-success" id="searchButton"><span class="fa fa-search fa-lg"></span>  Search</button>
 	</div>

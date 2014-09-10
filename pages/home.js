@@ -15,8 +15,10 @@ setTimeout(function() {
 
 document.addEventListener('DOMContentLoaded', function () {
 	var label = $("div > label");
+	console.log(label);
+	//var checkAllButton = label.each().find("#checkAllButton");
 	var flag = false; //TODO: fix this so it's based on checkbox state.
-	label[0].addEventListener('click', function(e){
+	label[2].addEventListener('click', function(e){
 		if(flag) {
 			$(this).html("Check All");
 			$(".checkboxOption").each(function(){
@@ -33,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function () {
 	});
 	
 	//TODO: change this 
-	$(":button")[1].addEventListener('click', searchClick);
+	$(":button")[0].addEventListener('click', searchClick);
 	
 	$(".content").keyup(function(e) {
 		if(e.keyCode == 13) {
@@ -142,6 +144,12 @@ function getGoogleGuidelinesLink(query){
 			"+guidelines";
 }
 
+function getUpToDateLink(query){
+	return "http://www.uptodate.com/contents/search?search=" + 
+			query + 
+			"&sp=0&searchType=PLAIN_TEXT&source=USER_INPUT&searchControl=TOP_PULLDOWN&searchOffset=";
+}
+
 function searchClick(e){
 	var query = document.getElementById("searchQuery").value;
 	var boxes = $(":checkbox");
@@ -184,6 +192,9 @@ function searchClick(e){
 					chrome.tabs.create({url: getGoogleREMSLink(query)});
 					break;
 				case 11:
+					chrome.tabs.create({url: getUpToDateLink(query)});
+					break;
+				case 12:
 					chrome.tabs.create({ url: getPubMedLink(query) });
 					break;
 			}
