@@ -93,6 +93,10 @@ function getWebMDLink(query){
 	return "http://www.webmd.com/search/search_results/default.aspx?query=" + query;
 }
 
+function getFDALink(query){
+	return "http://google2.fda.gov/search?q=gattex&client=FDAgov&site=FDAgov&lr=&proxystylesheet=FDAgov&requiredfields=-archive%3AYes&output=xml_no_dtd&getfields=*";
+}
+
 function getMHRALink(query){
 	return "";
 //	http://www.mhra.gov.uk/SearchHelp/GoogleSearch/index.htm?q=adalimumab
@@ -110,10 +114,6 @@ function getISMPLink(query){
 	//http://www.ismp.org/searchresults.asp?q=epinephrine
 }
 
-function getFDALink(query){
-	return "http://google2.fda.gov/search?q=gattex&client=FDAgov&site=FDAgov&lr=&proxystylesheet=FDAgov&requiredfields=-archive%3AYes&output=xml_no_dtd&getfields=*";
-}
-
 function searchClick(e){
 	var query = document.getElementById("searchQuery").value;
 	var boxes = $(":checkbox");
@@ -123,18 +123,21 @@ function searchClick(e){
 		if(boxes[i].checked){
 			switch(i){
 				case 0:
-					chrome.tabs.create({url : getGoogleLink(query)});
+					chrome.tabs.create({url: getFDALink(query)});
 					break;
 				case 1:
-					chrome.tabs.create({url: getMayoClinicLink(query) });
+					chrome.tabs.create({url : getGoogleLink(query)});
 					break;
 				case 2:
-					chrome.tabs.create({ url: getMedlinePlusLink(query) });
+					chrome.tabs.create({url: getMayoClinicLink(query) });
 					break;
 				case 3:
-					chrome.tabs.create({ url: getWebMDLink(query) });
+					chrome.tabs.create({ url: getMedlinePlusLink(query) });
 					break;
 				case 4:
+					chrome.tabs.create({ url: getWebMDLink(query) });
+					break;
+				case 5:
 					chrome.tabs.create({url: getWikipediaLink(query)});
 					break;
 			}

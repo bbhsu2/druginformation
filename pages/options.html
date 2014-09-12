@@ -15,29 +15,29 @@
 			line-height: 1.25;
       }
     </style> 
-	<!--<script src="../js/jquery-1.11.1.js"></script>-->
-	<script src="../js/bootstrap.min.js"></script>
+	<script src="../js/jquery-1.11.1.js"></script>
+	<script src="options.js"></script>
+
   </head>
   <body class="content">
 	<ul class="nav nav-tabs" role="tablist">
 		<li><a href="home.html"> <i class="fa fa-user-md fa-lg"></i> Provider</a></li> 
 		<li><a href="consumer.html"><i class="fa fa-male fa-lg"></i> Consumer</a></li>
-		<li class="active"><a href="#"> <span class="fa fa-cog fa-lg"></span> About</a></li>
+		<li class="active"><a href="#"> <span class="fa fa-cog fa-lg"></span> Options</a></li>
 	</ul> <!--Nav Tabs-->
-		
-	<div class="row pull-right">
-	  <div class="col-sm-12 col-md-12">
-	    <div class="thumbnail">
-	      <a href="http://www.allgoodpeople.us"><img src="../img/allgoodpeople.png" width="50%" alt="...">
-		  	</a>
-	      <div class="caption pull-right">
-			  <h3>About Drug Information <small>v0.9</small></h3>
-			  Written by Bernard Hsu<br/>
-			  With consult and suggestions from Bill Budris, RPh.
-	        <!-- <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p> -->
-	      </div>
-	    </div>
-	  </div>
+	
+	<div class="jumbotron">
+		<h2>I am:</h2>
+  		<label class="radio-inline">
+          <input name="radioGroup" id="radio1" value="option1" type="radio"> Consumer
+        </label>
+        <label class="radio-inline">
+          <input name="radioGroup" id="radio2" value="option2" type="radio" checked=""> Provider
+        </label>
+  	</div>
+	<div class="pull-right">
+		<button type="button" class="btn btn-success" id="aboutButton">About</button>
+	  	<button type="button" class="btn btn-primary" id="searchButton"><span class="fa fa-save fa-lg"></span>  Save</button>
 	</div>
   </body>
 </html>
