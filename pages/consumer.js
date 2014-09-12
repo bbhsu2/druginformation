@@ -28,11 +28,11 @@ document.addEventListener('DOMContentLoaded', function () {
 	});
 	
 	//TODO: change this 
-	$(":button")[1].addEventListener('click', searchClick);
+	$(":button")[0].addEventListener('click', searchClick);
 	
 	$(".content").keyup(function(e) {
 		if(e.keyCode == 13) {
-			$(":button")[1].click();
+			$(":button")[0].click();
 		}
 	});
 	
@@ -71,14 +71,13 @@ function checkAll(e){
 }
 
 //Begin page specific functions
-
 function getWikipediaLink(query){
-	return "http://en.wikipedia.org/wiki/Special:Search?search=" +metformin + "s&go=Go";
+	return "http://en.wikipedia.org/wiki/Special:Search?search=" + query + "&go=Go";
 }
 
 function getMedlinePlusLink(query){
 	return "http://vsearch.nlm.nih.gov/vivisimo/cgi-bin/query-meta?v%3Aproject=medlineplus&query=" + 
-			metformin + 
+			query + 
 			"&x=-1153&y=-113";
 }
 
@@ -91,6 +90,54 @@ function getMayoClinicLink(query){
 }
 
 function getWebMDLink(query){
-	return "http://www.webmd.com/search/search_results/default.aspx?query=" + metformin;
+	return "http://www.webmd.com/search/search_results/default.aspx?query=" + query;
 }
 
+function getMHRALink(query){
+	return "";
+//	http://www.mhra.gov.uk/SearchHelp/GoogleSearch/index.htm?q=adalimumab
+}
+
+function getTGALink(query){
+	return "";
+	//Therapeutic goods Administration
+	//http://agencysearch.australia.gov.au/s/search.html?query=certolizumab+pegol&collection=agencies&profile=tga
+}
+
+function getISMPLink(query){
+	return "";
+	//institute for safe medication practices
+	//http://www.ismp.org/searchresults.asp?q=epinephrine
+}
+
+function getFDALink(query){
+	return "http://google2.fda.gov/search?q=gattex&client=FDAgov&site=FDAgov&lr=&proxystylesheet=FDAgov&requiredfields=-archive%3AYes&output=xml_no_dtd&getfields=*";
+}
+
+function searchClick(e){
+	var query = document.getElementById("searchQuery").value;
+	var boxes = $(":checkbox");
+	
+	for(var i = 0; i < boxes.length; i++){
+		var string = "";
+		if(boxes[i].checked){
+			switch(i){
+				case 0:
+					chrome.tabs.create({url : getGoogleLink(query)});
+					break;
+				case 1:
+					chrome.tabs.create({url: getMayoClinicLink(query) });
+					break;
+				case 2:
+					chrome.tabs.create({ url: getMedlinePlusLink(query) });
+					break;
+				case 3:
+					chrome.tabs.create({ url: getWebMDLink(query) });
+					break;
+				case 4:
+					chrome.tabs.create({url: getWikipediaLink(query)});
+					break;
+			}
+		}
+	}
+}

@@ -4,41 +4,64 @@
     <title>Drug Information Search</title>
     <link rel="stylesheet" href="../css/bootstrap.min.css"/>
 	<link rel="stylesheet" href="../css/font-awesome.min.css"/>
-	<style>
-      body {
-		    padding: 2px;
-			width: 350px;
-			min-height: 50px;
-			max-height: 500px;
-			overflow: hidden;
-			overflow-y: auto;
-			line-height: 1.25;
-      }
-    </style> 
-    <script src="home.js"></script>
-	<script src="../js/jquery-1.11.1.js"></script>
-	<script src="../js/bootstrap.min.js"></script>
   </head>
-  <body class="content">
-	<ul class="nav nav-tabs" role="tablist">
-		<li><a href="home.html"> <i class="fa fa-user-md fa-lg"></i> Provider</a></li> 
+  <body>
+	  <div class="content">
+	  	<div class="jumbotron">
+		    <div class="jumbotron">
+		      <h1>Web Developer</h1>
+		      <p id="description"></p>
+
+		      <div class="row">
+		        <div class="col-sm-4">
+		          <h2 id="author"></h2>
+		          <a href="http://chrispederick.com/about/">Chris Pederick</a>
+		        </div>
+
+		        <div class="col-sm-4">
+		          <h2 id="version"></h2>
+		          0.4.6
+		        </div>
+
+		        <div class="col-sm-4">
+		          <h2 id="build-date"></h2>
+		          May 23, 2014
+		        </div>
+		      </div>
+
+		      <p class="url"><a href="http://chrispederick.com/work/web-developer/chrome/">http://chrispederick.com/work/web-developer/chrome/</a></p>
+
+		      <a href="http://twitter.com/chrispederick/" class="btn btn-info btn-lg">
+		        <i class="icon-twitter"></i>
+		        <span id="follow-on-twitter"></span>
+		      </a>
+		    </div>
+	  	</div>
+	  </div>
+	  
+	<!-- <ul class="nav nav-tabs" role="tablist">
+		<li><a href="home.html"> <i class="fa fa-user-md fa-lg"></i> Provider</a></li>
 		<li><a href="consumer.html"><i class="fa fa-male fa-lg"></i> Consumer</a></li>
-		<li class="active"><a href="#"> <span class="fa fa-cog fa-lg"></span> About</a></li>
-	</ul> <!--Nav Tabs-->
-	
-	<h3>About Drug Information <small>v0.9</small></h3>
-	
+		<li class="active"><a href="#"> <span class="fa fa-cog fa-lg"></span> Options</a></li>
+	</ul> <Nav Tabs
+
 	<div class="row pull-right">
 	  <div class="col-sm-12 col-md-12">
 	    <div class="thumbnail">
 	      <a href="http://www.allgoodpeople.us"><img src="../img/allgoodpeople.png" width="50%" alt="...">
 		  	</a>
-	      <div class="caption">
-	        <!-- <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p> -->
+	      <div class="caption pull-right">
+			  <h3>About Drug Information <small>v0.9</small></h3>
+			  Written by Bernard Hsu<br/>
+			  With consult and suggestions from Bill Budris, RPh.
+	        < <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p> 
 	      </div>
 	    </div>
 	  </div>
-	</div>
+	</div> -->
+	
+	<script src="../js/jquery-1.11.1.js"></script>
+	<script src="../js/bootstrap.min.js"></script>
   </body>
 </html>
 

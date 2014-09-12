@@ -2,6 +2,7 @@
   "manifest_version": 2,
   "name": "Drug Information",
   "description": "A quick plug-in to help with your drug information searches.",
+  "about_page": "pages/about.html",
   "version": "0.9",
   "permissions": [
     "tabs"

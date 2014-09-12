@@ -1,5 +1,14 @@
-/* Bernard Hsu, 2014
-License information here */
+/* 
+Drug Information- Chrome Extension
+by Bernard Hsu
+   All Good People LLC
+
+with consultation from Bill Budris, RPh
+   Northwestern Memorial Hospital, Chicago IL
+
+this version found at http://www.github.com/bbhsu2/druginformation
+
+MIT License */
 
 function focusSearchQuery(){
 	$("#searchQuery").focus();
@@ -39,7 +48,7 @@ document.addEventListener('DOMContentLoaded', function () {
 	
 	$(".content").keyup(function(e) {
 		if(e.keyCode == 13) {
-			$(":button")[1].click();
+			$(":button")[0].click();
 		}
 	});
 	
@@ -207,24 +216,3 @@ function checkAll(e){
 		this.checked = true;
 	});
 }
-
-
-// Simple little timer class to help with optimizations
-// function Timer() {
-  // this.start = (new Date).getTime();
-  // this.last = this.start;
-// }
-// Timer.prototype.log = function(id) {
-  // var now = (new Date).getTime();
-  // log(id + " total time " + (now - this.start) + " m/s, delta " + (now - this.last) + " m/s");
-  // this.last = now;
-// };
-
-// /**
- // * Log call that prepends the LOG_SRC before delegating to the background page to simplify debugging
- // */
-// function log() {
-  // var args = Array.prototype.slice.call(arguments);
-  // args.unshift(LOG_SRC);
-  // bg.log.apply(bg, args);
-// }
