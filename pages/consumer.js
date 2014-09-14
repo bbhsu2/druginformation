@@ -68,6 +68,7 @@ function checkAll(e){
 	$(".checkboxOption").each(function(){
 		this.checked = true;
 	});
+	focusSearchQuery();
 }
 
 //Begin page specific functions
@@ -94,22 +95,25 @@ function getWebMDLink(query){
 }
 
 function getFDALink(query){
-	return "http://google2.fda.gov/search?q=gattex&client=FDAgov&site=FDAgov&lr=&proxystylesheet=FDAgov&requiredfields=-archive%3AYes&output=xml_no_dtd&getfields=*";
+	return "http://google2.fda.gov/search?q=+" + 
+			query + 
+			"&client=FDAgov&site=FDAgov&lr=&" +
+			"proxystylesheet=FDAgov" +
+			"&requiredfields=-archive%3AYes&output=xml_no_dtd&getfields=*";
 }
 
 function getMHRALink(query){
-	return "";
-//	http://www.mhra.gov.uk/SearchHelp/GoogleSearch/index.htm?q=adalimumab
+	return "http://www.mhra.gov.uk/SearchHelp/GoogleSearch/index.htm?q=" + query;
 }
 
 function getTGALink(query){
-	return "";
+	return "http://agencysearch.australia.gov.au/s/search.html?query=" + query + "&collection=agencies&profile=tga";
 	//Therapeutic goods Administration
 	//http://agencysearch.australia.gov.au/s/search.html?query=certolizumab+pegol&collection=agencies&profile=tga
 }
 
 function getISMPLink(query){
-	return "";
+	return "http://www.ismp.org/searchresults.asp?q=" + query;
 	//institute for safe medication practices
 	//http://www.ismp.org/searchresults.asp?q=epinephrine
 }
@@ -128,16 +132,25 @@ function searchClick(e){
 				case 1:
 					chrome.tabs.create({url : getGoogleLink(query)});
 					break;
-				case 2:
-					chrome.tabs.create({url: getMayoClinicLink(query) });
+				case 2: 
+					chrome.tabs.create({url : getISMPLink(query)});
 					break;
 				case 3:
-					chrome.tabs.create({ url: getMedlinePlusLink(query) });
+					chrome.tabs.create({url: getMayoClinicLink(query) });
 					break;
 				case 4:
-					chrome.tabs.create({ url: getWebMDLink(query) });
+					chrome.tabs.create({ url: getMedlinePlusLink(query) });
 					break;
 				case 5:
+					chrome.tabs.create({ url: getMHRALink(query) });
+					break;
+				case 6:
+					chrome.tabs.create({ url: getTGALink(query) });
+					break;
+				case 7:
+					chrome.tabs.create({ url: getWebMDLink(query) });
+					break;
+				case 8:
 					chrome.tabs.create({url: getWikipediaLink(query)});
 					break;
 			}

@@ -1,42 +1,44 @@
-/*
-Drug Information- Chrome Extension
-by Bernard Hsu
-   All Good People LLC
+function saveOptions(){
+	var isProvider = true;
+	var consumerRadio = $(":input")[0];
+	var providerRadio = $(":input")[1];
+	
+	if(consumerRadio.checked){
+		isProvider = false;
+	}
+	
+	chrome.storage.sync.set({
+		isProvider: isProvider
+	}, function(){
+		$('.alert').show();
+		setTimeout(function(){
+			$('.alert').hide();
+		}, 1500);
+	});
+}
 
-with consultation from Bill Budris, RPh
-   Northwestern Memorial Hospital, Chicago IL
+function restoreOptions(){
+	chrome.storage.sync.get({
+		isProvider: true
+	}, function(items){
+		if(items.isProvider){
+			$(":input")[1].checked = true;
+		} else {
+			$(":input")[0].checked = true;
+		}
+	});
+}
 
-this version found at http://www.github.com/bbhsu2/druginformation
+document.addEventListener('DOMContentLoaded', function(){
+	$(".alert").hide();
+	
+	restoreOptions();
+	
+	$(":button")[0].addEventListener('click', function(){
+		chrome.tabs.create({url: "pages/about.html" });
+	});
+	
+	$(":button")[1].addEventListener('click', saveOptions);	
+});
 
-MIT License*/
-
-// Saves options to chrome.storage
-// function save_options() {
-//   var likesColor = document.getElementById('like').checked;
-//   var person = $('btn > input').checked;
-//   chrome.storage.sync.set({
-// 	  IsProvider: person
-//   }, function() {
-//     // Update status to let user know options were saved.
-//     var status = document.getElementById('status');
-//     status.textContent = 'Options saved.';
-//     setTimeout(function() {
-//       status.textContent = '';
-//     }, 750);
-//   });
-// }
-
-// function restore_options() {
-//
-//   chrome.storage.sync.get({
-// 	  IsProvider: true
-//   }, function(items) {
-// 	  $('btn > input').checked = true;
-//   });
-// }
-
-
-// document.addEventListener('DOMContentLoaded', function () {
-// 	restore_options();
-// })
 
