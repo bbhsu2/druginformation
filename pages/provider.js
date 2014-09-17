@@ -1,4 +1,4 @@
-/* 
+/*
 Drug Information- Chrome Extension
 by Bernard Hsu
    All Good People LLC
@@ -20,7 +20,7 @@ setTimeout(function() {
 
 document.addEventListener('DOMContentLoaded', function () {
 	var label = $("div > label");
-	
+
 	//set check disease button
 	label[0].addEventListener('click', function(e){
 		$(".disease").each(function(){
@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', function () {
 		});
 		focusSearchQuery();
 	})
-	
+
 	//set check drug button
 	label[1].addEventListener('click', function(e){
 		$(".drug").each(function(){
@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', function () {
 		});
 		focusSearchQuery();
 	})
-	
+
 	//set the check all button
 	var flag = false; //TODO: fix this so it's based on checkbox state.
 	label[2].addEventListener('click', function(e){
@@ -55,24 +55,24 @@ document.addEventListener('DOMContentLoaded', function () {
 		}
 		focusSearchQuery();
 	});
-	
+
 	var searchButton = $(":button")[0];
-	
+
 	//set search button click
 	searchButton.addEventListener('click', searchClick);
-	
+
 	//setting enter button click
 	$(".content").keyup(function(e) {
 		if(e.keyCode == 13) {
 			searchButton.click();
 		}
 	});
-	
+
 	//make it so that checkboxes are checked when label is clicked
     $(".form-control").on("click", checkInside);
 	$("#searchQuery").attr('onclick','').unbind('click'); //remove click handler for box
  })
- 
+
  function checkInside(e) {
     var box = $(".checkboxOption",$(this).parent());
     if(box.prop('checked') == true){
@@ -80,7 +80,7 @@ document.addEventListener('DOMContentLoaded', function () {
     } else{
          box.prop('checked', true);
     }
-	 
+
 	var allBoxes = $(":checkbox");
 	var hasUnchecked = true;
 	var box = $(".btn-group > .btn-primary");
@@ -93,7 +93,7 @@ document.addEventListener('DOMContentLoaded', function () {
 			box.html("Unselect All");
 		}
 	}
-	
+
 	focusSearchQuery();
 }
 
@@ -119,8 +119,8 @@ function getDrugsAtFDALink(query){
 }
 
 function getDrugsAtFDAReviewLink(query){
-	return "https://www.google.com/#q="+ 
-		   query + 
+	return "https://www.google.com/#q="+
+		   query +
 		   "+Medical+Review(s)+Pharmacology+Review(s)+Administrative+Document(s)+Correspondence"
 }
 
@@ -171,59 +171,89 @@ function getGoogleGuidelinesLink(query){
 }
 
 function getUpToDateLink(query){
-	return "http://www.uptodate.com/contents/search?search=" + 
-			query + 
+	return "http://www.uptodate.com/contents/search?search=" +
+			query +
 			"&sp=0&searchType=PLAIN_TEXT&source=USER_INPUT&searchControl=TOP_PULLDOWN&searchOffset=";
+}
+
+function setClickTimeout(func){
+	setTimeout(func, 125);
 }
 
 function searchClick(e){
 	var query = document.getElementById("searchQuery").value;
-	
+
 	if(query != ""){
 		var boxes = $(":checkbox");
-		
+
 		for(var i = 0; i < boxes.length; i++){
 			var string = "";
 			if(boxes[i].checked){
 				switch(i){
 					case 0:
-						chrome.tabs.create({url : getClinPharmLink(query)});
+						setClickTimeout(function(){
+							chrome.tabs.create({url : getClinPharmLink(query)});
+						});
 						break;
 					case 1:
-						chrome.tabs.create({url: getClinicalTrialsGovLink(query) });
+						setClickTimeout(function(){
+							chrome.tabs.create({url: getClinicalTrialsGovLink(query)});
+						});
 						break;
 					case 2:
-						chrome.tabs.create({ url: getDailyMedLink(query) });
+						setClickTimeout(function(){
+							chrome.tabs.create({ url: getDailyMedLink(query)});
+						});
 						break;
 					case 3:
-						chrome.tabs.create({ url: getDrugsAtFDALink(query) });
+						setClickTimeout(function(){
+							chrome.tabs.create({ url: getDrugsAtFDALink(query)});
+						});
 						break;
 					case 4:
-						chrome.tabs.create({url: getDrugsAtFDAReviewLink(query)});
+						setClickTimeout(function(){
+							chrome.tabs.create({url: getDrugsAtFDAReviewLink(query)});
+						});
 						break;
 					case 5:
-						chrome.tabs.create({url: getGoogleFDAAdComLink(query)});
+						setClickTimeout(function(){
+							chrome.tabs.create({url: getGoogleFDAAdComLink(query)});
+						});
 						break;
 					case 6:
-						chrome.tabs.create({ url: getEMEALink(query) });
+						setClickTimeout(function(){
+							chrome.tabs.create({ url: getEMEALink(query)});
+						});
 						break;
 					case 7:
-						chrome.tabs.create({ url: getGoogleLink(query) });
+						setClickTimeout(function(){
+							chrome.tabs.create({ url: getGoogleLink(query)});
+						});
 						break;
 					case 8:
-						chrome.tabs.create({url: getGoogleGuidelinesLink(query)});
+						setClickTimeout(function(){
+							chrome.tabs.create({url: getGoogleGuidelinesLink(query)});
+						});
 						break;
 					case 9:
-						chrome.tabs.create({url: getGoogleRestrictedDistributionLink(query)});
+						setClickTimeout(function(){
+							chrome.tabs.create({url: getGoogleRestrictedDistributionLink(query)});
+						});
 						break;
 					case 10:
-						chrome.tabs.create({url: getGoogleREMSLink(query)});
+						setClickTimeout(function(){
+							chrome.tabs.create({url: getGoogleREMSLink(query)});
+						});
 						break;
 					case 11:
-						chrome.tabs.create({url: getUpToDateLink(query)});
+						setClickTimeout(function(){
+							chrome.tabs.create({url: getUpToDateLink(query)});
+						});
 						break;
 					case 12:
-						chrome.tabs.create({ url: getPubMedLink(query) });
+						setClickTimeout(function(){
+							chrome.tabs.create({ url: getPubMedLink(query)});
+						});
 						break;
 				}
 			}

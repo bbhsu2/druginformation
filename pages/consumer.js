@@ -26,20 +26,20 @@ document.addEventListener('DOMContentLoaded', function () {
 			flag =  true;
 		}
 	});
-	
-	//TODO: change this 
+
+	//TODO: change this
 	$(":button")[0].addEventListener('click', searchClick);
-	
+
 	$(".content").keyup(function(e) {
 		if(e.keyCode == 13) {
 			$(":button")[0].click();
 		}
 	});
-	
+
     $(".form-control").on("click", checkInside);
 	$("#searchQuery").attr('onclick','').unbind('click'); //remove click handler for box
  })
- 
+
  function checkInside(e) {
     var box = $(".checkboxOption",$(this).parent());
     if(box.prop('checked') == true){
@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', function () {
     } else{
          box.prop('checked', true);
     }
-	 
+
 	var allBoxes = $(":checkbox");
 	var hasUnchecked = true;
 	var box = $(".btn-group > .btn-primary");
@@ -60,7 +60,7 @@ document.addEventListener('DOMContentLoaded', function () {
 			box.html("Unselect All");
 		}
 	}
-	
+
 	focusSearchQuery();
 }
 
@@ -77,8 +77,8 @@ function getWikipediaLink(query){
 }
 
 function getMedlinePlusLink(query){
-	return "http://vsearch.nlm.nih.gov/vivisimo/cgi-bin/query-meta?v%3Aproject=medlineplus&query=" + 
-			query + 
+	return "http://vsearch.nlm.nih.gov/vivisimo/cgi-bin/query-meta?v%3Aproject=medlineplus&query=" +
+			query +
 			"&x=-1153&y=-113";
 }
 
@@ -95,8 +95,8 @@ function getWebMDLink(query){
 }
 
 function getFDALink(query){
-	return "http://google2.fda.gov/search?q=+" + 
-			query + 
+	return "http://google2.fda.gov/search?q=+" +
+			query +
 			"&client=FDAgov&site=FDAgov&lr=&" +
 			"proxystylesheet=FDAgov" +
 			"&requiredfields=-archive%3AYes&output=xml_no_dtd&getfields=*";
@@ -118,40 +118,72 @@ function getISMPLink(query){
 	//http://www.ismp.org/searchresults.asp?q=epinephrine
 }
 
+function getHealthCanadaLink(query){
+	return "http://www.healthycanadians.gc.ca/recall-alert-rappel-avis/search-recherche/result-resultat/en?search_text_1="+
+					query;
+}
+
+function setClickTimeout(func){
+	setTimeout(func, 125);
+}
+
 function searchClick(e){
 	var query = document.getElementById("searchQuery").value;
 	var boxes = $(":checkbox");
-	
+
 	for(var i = 0; i < boxes.length; i++){
 		var string = "";
 		if(boxes[i].checked){
 			switch(i){
 				case 0:
-					chrome.tabs.create({url: getFDALink(query)});
+					setClickTimeout(function(){
+						chrome.tabs.create({url: getFDALink(query)});
+					});
 					break;
 				case 1:
-					chrome.tabs.create({url : getGoogleLink(query)});
+					setClickTimeout(function(){
+						chrome.tabs.create({url : getGoogleLink(query)});
+					});
 					break;
-				case 2: 
-					chrome.tabs.create({url : getISMPLink(query)});
+				case 2:
+					setClickTimeout(function(){
+						chrome.tabs.create({url : getHealthCanadaLink(query)});
+					});
 					break;
 				case 3:
-					chrome.tabs.create({url: getMayoClinicLink(query) });
+					setClickTimeout(function(){
+						chrome.tabs.create({url : getISMPLink(query)});
+					});
 					break;
 				case 4:
-					chrome.tabs.create({ url: getMedlinePlusLink(query) });
+					setClickTimeout(function(){
+						chrome.tabs.create({url: getMayoClinicLink(query)});
+					});
 					break;
 				case 5:
-					chrome.tabs.create({ url: getMHRALink(query) });
+					setClickTimeout(function(){
+						chrome.tabs.create({ url: getMedlinePlusLink(query)});
+					});
 					break;
 				case 6:
-					chrome.tabs.create({ url: getTGALink(query) });
+					setClickTimeout(function(){
+						chrome.tabs.create({ url: getMHRALink(query)});
+					});
 					break;
 				case 7:
-					chrome.tabs.create({ url: getWebMDLink(query) });
+					setClickTimeout(function(){
+						chrome.tabs.create({ url: getTGALink(query)});
+					});
 					break;
 				case 8:
-					chrome.tabs.create({url: getWikipediaLink(query)});
+					setClickTimeout(function(){
+						chrome.tabs.create({ url: getWebMDLink(query)});
+					});
+					break;
+				case 9:
+					setClickTimeout(function(){
+						chrome.tabs.create({url: getWikipediaLink(query)});
+					});
 					break;
 			}
 		}
