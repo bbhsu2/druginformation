@@ -5,18 +5,18 @@
 
 **Drug Information** is a Google Chrome Plugin for consumers and healthcare providers to rapidly search for drug and disease state information!
 
-| Provider Sources        || Consumer Sources                  |
-| -------------------     || ----------------                  |
-| Clinical Pharmacology   || US FDA                            |
-| Clinicaltrials.gov      || Google                            |
-| DailyMed                || Health Canada                     |
-| Drugs@FDA               || ISMP (Inst. Safe Med. Practice)   |
-| FDA Review Docs         || Mayo Clinic                       |
-| FDA Advisory Committee  || Medline Plus (US)                 |
-| EMEA Drugs              || Med. & Healthcare Reg. Agen. (UK) |
-| Google                  || Therapeutic Goods Admin (AU)      |
-| UpToDate                || WebMD                             |
-| PubMed                  || Wikipedia                         |
+| Provider Sources        | Consumer Sources                  |
+| -------------------     | ----------------                  |
+| Clinical Pharmacology   | US FDA                            |
+| Clinicaltrials.gov      | Google                            |
+| DailyMed                | Health Canada                     |
+| Drugs@FDA               | ISMP (Inst. Safe Med. Practice)   |
+| FDA Review Docs         | Mayo Clinic                       |
+| FDA Advisory Committee  | Medline Plus (US)                 |
+| EMEA Drugs              | Med. & Healthcare Reg. Agen. (UK) |
+| Google                  | Therapeutic Goods Admin (AU)      |
+| UpToDate                | WebMD                             |
+| PubMed                  | Wikipedia                         |
 
 
 ### Store description ###
