@@ -102,9 +102,11 @@ function getPubMedLink(query){
 }
 
 function getDailyMedLink(query){
-	return "https://dailymed.nlm.nih.gov/dailymed/search.cfm?startswith=" +
-		   query +
-		   "&x=0&y=0";
+	return "http://dailymed.nlm.nih.gov/dailymed/search.cfm?query=" + query;
+	//old link
+	// return "https://dailymed.nlm.nih.gov/dailymed/search.cfm?startswith=" +
+	// 	   query +
+	// 	   "&x=0&y=0";
 }
 
 function getClinPharmLink(query){
