@@ -28,3 +28,4 @@ For any consumer or healthcare professional who wants a quick entry-point in sea
 >Handmade by All Good People with consult from Northwestern Memorial Hospital Drug Information Center. Chicago, IL.
 
 [<img src="https://lh3.googleusercontent.com/YRLZQ-F3KmHUg9OnejK085rKN9J5nrstSoz3wbVvRBUFjOqC71eGic7B3LkFGMo7ddzidus3Kow=s1280-h800-e365">](http://bit.ly/DrugInformation)
+bill was here
