@@ -178,6 +178,11 @@ function getUpToDateLink(query){
 			"&sp=0&searchType=PLAIN_TEXT&source=USER_INPUT&searchControl=TOP_PULLDOWN&searchOffset=";
 }
 
+function getHealthCanadaLink(query){
+	return "http://www.healthycanadians.gc.ca/recall-alert-rappel-avis/search-recherche/result-resultat/en?search_text_1="+
+					query;
+}
+
 function setClickTimeout(func){
 	setTimeout(func, 125);
 }
@@ -249,10 +254,15 @@ function searchClick(e){
 						break;
 					case 11:
 						setClickTimeout(function(){
-							chrome.tabs.create({url: getUpToDateLink(query)});
+							chrome.tabs.create({url: getHealthCanadaLink(query)});
 						});
 						break;
 					case 12:
+						setClickTimeout(function(){
+							chrome.tabs.create({url: getUpToDateLink(query)});
+						});
+						break;
+					case 13:
 						setClickTimeout(function(){
 							chrome.tabs.create({ url: getPubMedLink(query)});
 						});
