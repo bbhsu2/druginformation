@@ -1,8 +1,8 @@
 {
-  "manifest_version": 2,
+  "manifest_version": 3,
   "name": "Drug Information",
   "description": "The quickest way to find comprehensive, up to date, drug information. For consumers and healthcare professionals.",
-  "version": "0.882",
+  "version": "0.884",
   "permissions": [
     "tabs",
 	  "storage"

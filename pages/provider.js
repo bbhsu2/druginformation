@@ -183,6 +183,14 @@ function getHealthCanadaLink(query){
 					query;
 }
 
+function getNLMLink(query){
+	return "https://druginfo.nlm.nih.gov/drugportal/name/"+query;
+}
+
+function getAccessDataFDALink(query){
+	return "http://www.accessdata.fda.gov/scripts/cder/drugsatfda/index.cfm?fuseaction=Search.SearchAction&SearchTerm=" + query + "&SearchType=BasicSearch";
+}
+
 function setClickTimeout(func){
 	setTimeout(func, 125);
 }
@@ -199,70 +207,80 @@ function searchClick(e){
 				switch(i){
 					case 0:
 						setClickTimeout(function(){
-							chrome.tabs.create({url : getClinPharmLink(query)});
+							chrome.tabs.create({url: getAccessDataFDALink(query)});
 						});
 						break;
 					case 1:
 						setClickTimeout(function(){
-							chrome.tabs.create({url: getClinicalTrialsGovLink(query)});
+							chrome.tabs.create({url : getClinPharmLink(query)});
 						});
 						break;
 					case 2:
 						setClickTimeout(function(){
-							chrome.tabs.create({ url: getDailyMedLink(query)});
+							chrome.tabs.create({url: getClinicalTrialsGovLink(query)});
 						});
 						break;
 					case 3:
 						setClickTimeout(function(){
-							chrome.tabs.create({ url: getDrugsAtFDALink(query)});
+							chrome.tabs.create({ url: getDailyMedLink(query)});
 						});
 						break;
 					case 4:
 						setClickTimeout(function(){
-							chrome.tabs.create({url: getDrugsAtFDAReviewLink(query)});
+							chrome.tabs.create({ url: getDrugsAtFDALink(query)});
 						});
 						break;
 					case 5:
 						setClickTimeout(function(){
-							chrome.tabs.create({url: getGoogleFDAAdComLink(query)});
+							chrome.tabs.create({url: getDrugsAtFDAReviewLink(query)});
 						});
 						break;
 					case 6:
 						setClickTimeout(function(){
-							chrome.tabs.create({ url: getEMEALink(query)});
+							chrome.tabs.create({url: getGoogleFDAAdComLink(query)});
 						});
 						break;
 					case 7:
 						setClickTimeout(function(){
-							chrome.tabs.create({ url: getGoogleLink(query)});
+							chrome.tabs.create({ url: getEMEALink(query)});
 						});
 						break;
 					case 8:
 						setClickTimeout(function(){
-							chrome.tabs.create({url: getGoogleGuidelinesLink(query)});
+							chrome.tabs.create({ url: getGoogleLink(query)});
 						});
 						break;
 					case 9:
 						setClickTimeout(function(){
-							chrome.tabs.create({url: getGoogleRestrictedDistributionLink(query)});
+							chrome.tabs.create({url: getGoogleGuidelinesLink(query)});
 						});
 						break;
 					case 10:
 						setClickTimeout(function(){
-							chrome.tabs.create({url: getGoogleREMSLink(query)});
+							chrome.tabs.create({url: getGoogleRestrictedDistributionLink(query)});
 						});
 						break;
 					case 11:
 						setClickTimeout(function(){
-							chrome.tabs.create({url: getHealthCanadaLink(query)});
+							chrome.tabs.create({url: getGoogleREMSLink(query)});
 						});
 						break;
 					case 12:
 						setClickTimeout(function(){
+							chrome.tabs.create({url: getHealthCanadaLink(query)});
+						});
+						break;
+		  		case 13:
+						setClickTimeout(function(){
+							chrome.tabs.create({url: getNLMLink(query)});
+						});
+						break;
+					case 14:
+						setClickTimeout(function(){
 							chrome.tabs.create({url: getUpToDateLink(query)});
 						});
 						break;
-					case 13:
+					case 15:
 						setClickTimeout(function(){
 							chrome.tabs.create({ url: getPubMedLink(query)});
 						});
